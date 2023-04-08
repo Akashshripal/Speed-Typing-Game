@@ -516,7 +516,7 @@ var _useWordGame3 = _interopRequireDefault(_useWordGame2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-    var _useWordGame = (0, _useWordGame3.default)(5),
+    var _useWordGame = (0, _useWordGame3.default)(),
         textBoxRef = _useWordGame.textBoxRef,
         handleChange = _useWordGame.handleChange,
         text = _useWordGame.text,
@@ -626,14 +626,15 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 var _react = __webpack_require__(1);
 
 function useWordGame() {
-    var startingTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
+
+    var STARTING_TIME = 15;
 
     var _useState = (0, _react.useState)(""),
         _useState2 = _slicedToArray(_useState, 2),
         text = _useState2[0],
         setText = _useState2[1];
 
-    var _useState3 = (0, _react.useState)(startingTime),
+    var _useState3 = (0, _react.useState)(STARTING_TIME),
         _useState4 = _slicedToArray(_useState3, 2),
         timeRemaining = _useState4[0],
         setTimeRemaining = _useState4[1];
@@ -665,7 +666,7 @@ function useWordGame() {
 
     function startGame() {
         setIsTimeRunning(true);
-        setTimeRemaining(startingTime);
+        setTimeRemaining(STARTING_TIME);
         setText("");
         textBoxRef.current.disabled = false;
         textBoxRef.current.focus();
